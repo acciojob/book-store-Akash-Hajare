@@ -47,7 +47,7 @@ public class BookController {
     }
 
     @DeleteMapping("/delete-all-books")
-    public ResponseEntity<String> deleteAllBooks(){
+    public ResponseEntity deleteAllBooks(){
         String response= bookService.deleteAllBooks();
         return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
     }
