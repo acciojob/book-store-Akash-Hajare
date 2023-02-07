@@ -41,14 +41,14 @@ public class BookController {
         return new ResponseEntity<>(bookList,HttpStatus.GATEWAY_TIMEOUT);
     }
     @DeleteMapping("/delete-book-by-id/{id}")
-    public ResponseEntity deleteBookById(@PathVariable("id") String id){
-        bookService.deleteBookById(id);
-        return new ResponseEntity(HttpStatus.DESTINATION_LOCKED);
+    public ResponseEntity<String> deleteBookById(@PathVariable("id") String id){
+       String response= bookService.deleteBookById(id);
+        return new ResponseEntity<>(response,HttpStatus.REQUEST_TIMEOUT);
     }
 
     @DeleteMapping("/delete-all-books")
-    public ResponseEntity deleteAllBooks(){
-        bookService.deleteAllBooks();
-        return new ResponseEntity(HttpStatus.DESTINATION_LOCKED);
+    public ResponseEntity<String> deleteAllBooks(){
+        String response= bookService.deleteAllBooks();
+        return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
     }
 }

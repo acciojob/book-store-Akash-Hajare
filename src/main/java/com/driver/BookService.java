@@ -19,16 +19,18 @@ public class BookService {
         return bookRepository.findBookById(id);
     }
 
-    public void deleteBookById(String id){
+    public String deleteBookById(String id){
         bookRepository.deleteBookById(Integer.parseInt(id));
+        return "Book deleted successfully";
     }
 
     public List<Book> findAllBooks(){
         return bookRepository.findAll();
     }
 
-    public void deleteAllBooks(){
+    public String deleteAllBooks(){
         bookRepository.deleteAll();
+        return " All Book deleted successfully";
     }
 
     public List<Book> findBooksByAuthor(String author){
